@@ -1,0 +1,69 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+h1 {
+  color: white;
+}
+
+#enviar {
+  width: 100%;
+}
+
+#text {
+  background-color: #eee;
+}
+
+section {
+  background-color: #DD2C00;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+section.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section.login h1 {
+  color: white;
+  text-align: center;
+}
+
+section.login a#enviar {
+  background-color: #6B5195;
+  color:white;
+}
+
+
+section.chat h2{
+  color:white;
+}
+
+.panel .panel-heading b{
+  color: white;
+}
+.panel .panel-body p{
+  font-size: 1.3em;
+}
+
+
+main.ng-enter {
+	transition: 1s linear all;
+	opacity: 0;
+}
+main.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+
+.panel.ng-enter {
+	transition: 0.6s linear all;
+  transform: translatey(30vh);
+	opacity: 0;
+}
+.panel.ng-enter.ng-enter-active {
+  transform: translatey(0);
+  opacity: 1;
+}

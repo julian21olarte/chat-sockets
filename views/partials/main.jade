@@ -1,0 +1,27 @@
+section.chat
+  .container
+    .row
+      .col-xs-12
+        h1= title
+    .row
+      .col-xs-12
+        h2 mensajes:
+        .mensajes
+          .panel.panel-primary(ng-repeat="msg in messages")
+            .panel-heading
+              b {{msg.author}} dice:
+            .panel-body
+              p {{msg.message}}
+    .footer.navbar-fixed-bottom
+      form#form-chat.form-inline
+        .input-group.col-xs-12
+          input.input-lg.form-control(type="text", id="text", placeholder="Mensaje", autocomplete="off")
+          .input-group-btn
+            button#enviar.btn.btn-default.btn-lg.btn-success(type="submit")
+              span.glyphicon.glyphicon-send
+
+
+
+
+
+
