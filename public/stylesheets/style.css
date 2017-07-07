@@ -37,7 +37,9 @@ section.login a#enviar {
   color:white;
 }
 
-
+section.chat {
+  padding-bottom: 10%;
+}
 section.chat h2{
   color:white;
 }
@@ -60,7 +62,7 @@ main.ng-enter.ng-enter-active {
 
 .panel.ng-enter {
 	transition: 0.6s linear all;
-  transform: translatey(30vh);
+  transform: translatey(20vh);
 	opacity: 0;
 }
 .panel.ng-enter.ng-enter-active {

@@ -8,23 +8,34 @@ app
   {
     $scope.title = "CHAT SOCKETS";
 
+
+
     $('#form-login.form input#nick').on('keyup' , function(e) {
       if(e.which === 13 && $(this).val() != '') {
          $('#form-login.form a#enviar').trigger('click');
       }
     });
 
+
+
+
     $('#form-login.form a#enviar').on('click', function(e) {
       
       var nick = $('#form-login input#nick').val();
       socket.emit('new-login', { 'nick': nick } );
      });
+
+
+
   }])
 
 
   .controller('mainController', ["$scope",'$http', function ($scope, $http) 
   {
+
     $scope.messages = [];
+    var audio = new Audio('../sounds/filling.mp3');
+
     socket.on('new-message', function(data) {
       
       var nick = data.nickname;
@@ -37,8 +48,11 @@ app
 
       $scope.$apply(function() {
         $scope.messages.push(msg);
-
       });
+
+       $(document).scrollTop($('body').height());
+       audio.play();
+
     });
 
 
