@@ -3,8 +3,6 @@
 var app = angular.module('app.controllers', ['ngAnimate']);
 var socket = io.connect();
 
-
-
 app
   .controller('loginController', ['$scope', '$http', function($scope, $http)
   {
