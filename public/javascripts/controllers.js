@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('app.controllers', ['ngAnimate']);
-var socket = io.connect('http://localhost:3000', {'forceNew': true});
+var socket = io.connect();
 
 
 
