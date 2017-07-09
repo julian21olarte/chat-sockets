@@ -10,13 +10,11 @@ app
 
     var data = {};
     data.nickname = 'nick por defecto';
-      //alert('esto es lo que sale = '+data.nickname);
     return data;
   }])
 
   .controller('loginController', ['$scope', '$http', 'nicknameService', function($scope, $http, nicknameService)
   {
-   // alert('service = '+nicknameService.nickname);
 
     /**
      *  aceptar un NICKNAME al pulsar la tecla ENTER
@@ -36,7 +34,6 @@ app
     $('#form-login.form a#enviar').on('click', function(e) {
       
       var nickname = $('#form-login input#nickname').val();
-      //socket.emit('new-login', { 'nickname': nickname } );
       $http({
         method: 'POST',
         url: '/main',
