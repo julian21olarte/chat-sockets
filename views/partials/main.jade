@@ -7,12 +7,10 @@ section.chat
       .col-xs-12
         h2 mensajes: 
           b= nickname
-        .mensajes
-          .panel.panel-primary(ng-repeat="msg in messages")
-            .panel-heading
-              b {{msg.author}}
-            .panel-body
-              p {{msg.message}}
+        .mensajes  
+          p.message-container(ng-repeat="msg in messages")
+            b {{msg.author}} dice: 
+            {{msg.message}}
     .footer.navbar-fixed-bottom
       form#form-chat.form-inline
         .input-group.col-xs-12

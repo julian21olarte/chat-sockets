@@ -46,12 +46,19 @@ section.chat h2{
   color:white;
 }
 
-.panel .panel-heading b{
-  color: white;
+p.message-container {
+  padding: 1%;
+  max-width: calc(100vw - 10vw);
+  font-size: 1.6em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #222;
+  background:#fff;
+  word-break: break-all;
 }
-.panel .panel-body p{
-  font-size: 1.3em;
+p.message-container b{
+  color: steelblue;
 }
+
 
 
 
@@ -66,12 +73,12 @@ main.ng-enter.ng-enter-active {
 	opacity: 1;
 }
 
-.panel.ng-enter {
+.message-container.ng-enter {
 	transition: 0.6s linear all;
   transform: translatey(20vh);
 	opacity: 0;
 }
-.panel.ng-enter.ng-enter-active {
+.message-container.ng-enter.ng-enter-active {
   transform: translatey(0);
   opacity: 1;
 }
