@@ -3,7 +3,6 @@ var express = require('express');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log('si llega al login mothefucap');
   res.render('partials/login', {'title': 'CHAT SOCKETS'});
 });
 

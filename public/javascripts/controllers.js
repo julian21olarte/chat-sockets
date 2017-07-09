@@ -6,7 +6,7 @@ var socket = io.connect();
 var app = angular.module('app.controllers', ['ngAnimate']);
 
 app
-  .factory('nicknameService',['$http', '$location', function($http, $location) {
+  .factory('nicknameService',[ () => {
 
     var data = {};
     data.nickname = 'nick por defecto';
@@ -63,7 +63,11 @@ app
       }
     });
 
+
+    //load sound to play in new message send.
     var audio = new Audio('../sounds/filling.mp3');
+
+
 
     socket.on('new-message', function(data) {
 
@@ -82,6 +86,9 @@ app
        audio.play();
 
     });
+
+
+
 
 
     /**
