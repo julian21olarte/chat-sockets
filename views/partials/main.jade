@@ -5,11 +5,12 @@ section.chat
         h1= title
     .row
       .col-xs-12
-        h2 mensajes:
+        h2 mensajes: 
+          b= nickname
         .mensajes
           .panel.panel-primary(ng-repeat="msg in messages")
             .panel-heading
-              b {{msg.author}} dice:
+              b {{msg.author}}
             .panel-body
               p {{msg.message}}
     .footer.navbar-fixed-bottom
@@ -17,7 +18,7 @@ section.chat
         .input-group.col-xs-12
           input.input-lg.form-control(type="text", id="text", placeholder="Mensaje", autocomplete="off")
           .input-group-btn
-            button#enviar.btn.btn-default.btn-lg.btn-success(type="submit")
+            button#enviar.btn.btn-default.btn-lg.btn-success
               span.glyphicon.glyphicon-send
 
 

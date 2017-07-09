@@ -1,24 +1,38 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let session = require('express-session');
+let mongostore = require('connect-mongo')(session);
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var login = require('./routes/login');
-var main = require('./routes/main');
+let index = require('./routes/index');
+let login = require('./routes/login');
+let main = require('./routes/main');
+let sessions = require('./routes/sessions');
 
-var app = express();
+let app = express();
+
+
 
 // require to socket.io config
 app.io = require('socket.io')();
-var socket_manager = require('./sockets.js')(app.io);
+let socket_manager = require('./sockets.js')(app.io);
+
+
 
 // express-session config
-app.use(session({secret: 'ssshhhhh', resave: 'false', saveUninitialized: 'false'}));
+app.use(session({
+  secret: 'ssshhhhh', 
+  resave: 'true', 
+  saveUninitialized: 'true',
+  store: new mongostore({
+    url: 'mongodb://127.0.0.1:27017/chat-sockets',
+    autoReconnect: true
+  })
+}));
+
 
 
 // view engine setup
@@ -41,17 +55,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/login', login);
 app.use('/main', main);
+app.use('/sessions', sessions);
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

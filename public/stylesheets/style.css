@@ -1,7 +1,11 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
+body, section {
+  min-height: 100vh;
+}
 
 h1 {
   color: white;
@@ -17,8 +21,6 @@ h1 {
 
 section {
   background-color: #DD2C00;
-  width: 100vw;
-  min-height: 100vh;
 }
 
 section.login {
@@ -51,6 +53,10 @@ section.chat h2{
   font-size: 1.3em;
 }
 
+
+
+
+/* Animations in login and message enter */
 
 main.ng-enter {
 	transition: 1s linear all;

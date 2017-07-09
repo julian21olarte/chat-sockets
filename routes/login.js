@@ -1,9 +1,10 @@
 var express = require('express');
-var router = express.Router();
+ router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('partials/login');
+router.get('/', (req, res, next) => {
+  console.log('si llega al login mothefucap');
+  res.render('partials/login', {'title': 'CHAT SOCKETS'});
 });
 
 module.exports = router;
